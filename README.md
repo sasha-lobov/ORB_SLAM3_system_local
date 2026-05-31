@@ -11,8 +11,8 @@ Pet-проект по исследованию и реализации сист�
 Ключевые блоки:
 - sender.py — трансляция видеопотока из AirSim в SLAM через ZeroMQ
 - ORB-SLAM3 — визуальная одометрия (монокулярный режим)
-- ROS/ZMQ Bridge — преобразование систем координат (NED ↔ ENU/Camera) и публикация позы
-- Moving Average Filter — сглаживание шумов одометрии
+- ROS-нода — преобразование систем координат (NED ↔ ENU/Camera) и публикация позы
+- Smoothing Filter — скользящее среднее для сглаживания шумов одометрии.
 - Dynamic Scaler — онлайн-калибровка масштаба по данным IMU/акселерометра
 - PID Controller + Lookahead — трекинг траектории с компенсацией задержки SLAM
 
@@ -45,6 +45,7 @@ new_scale = (1 - α) * current_scale + α * instant_scale  # EMA-фильтр
 - Python 3.10
 - AirSim (с Unreal Engine или из бинарных файлов)
 - Скомпилированный ORB-SLAM3
+- ROS (для моста данных)
 - Пакеты: airsim, pyzmq, numpy, opencv-python, matplotlib
 
 ### 2) Настройка AirSim
